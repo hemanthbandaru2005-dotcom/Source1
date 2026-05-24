@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Finance Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>Finance Management System</h1>
+
+  <div class="box">
+
+    <input type="text" id="assetName" placeholder="Asset Name">
+
+    <input type="text" id="assetType" placeholder="Asset Type">
+
+    <input type="number" id="purchaseValue" placeholder="Purchase Value">
+
+    <input type="date" id="purchaseDate">
+
+    <input type="number" id="currentValue" placeholder="Current Value">
+
+    <input type="date" id="currentDate">
+
+    <input type="text" id="description" placeholder="Description">
+
+    <button id="addBtn">Add Asset</button>
+
+  </div>
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Purchase Value</th>
+        <th>Purchase Date</th>
+        <th>Current Value</th>
+        <th>Current Date</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody id="assetTable">
+
+    </tbody>
+
+  </table>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
