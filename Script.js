@@ -1,54 +1,71 @@
-document.getElementById("addBtn").addEventListener("click", addAsset);
+// SHOW SECTIONS
 
-function addAsset(){
+function showSection(sectionId){
 
-  let assetName =
-    document.getElementById("assetName").value;
+    let sections = document.querySelectorAll('.section');
 
-  let assetType =
-    document.getElementById("assetType").value;
+    sections.forEach(section=>{
+        section.classList.remove('active');
+    });
 
-  let purchaseValue =
-    document.getElementById("purchaseValue").value;
+    document.getElementById(sectionId).classList.add('active');
+}
 
-  let purchaseDate =
-    document.getElementById("purchaseDate").value;
+// SWITCH BETWEEN FIXED & NON-FIXED
 
-  let currentValue =
-    document.getElementById("currentValue").value;
+function showAssetTable(tableId){
 
-  let currentDate =
-    document.getElementById("currentDate").value;
+    let tables = document.querySelectorAll('.asset-table');
 
-  let description =
-    document.getElementById("description").value;
+    tables.forEach(table=>{
+        table.classList.remove('active-table');
+    });
 
-  if(assetName === ""){
-    alert("Please enter asset name");
-    return;
-  }
+    document.getElementById(tableId).classList.add('active-table');
+}
 
-  let table =
-    document.getElementById("assetTable");
+// ADD NEW ROWS
 
-  let row = table.insertRow();
+function addRow(tableId){
 
-  row.innerHTML = `
-    <td>${assetName}</td>
-    <td>${assetType}</td>
-    <td>${purchaseValue}</td>
-    <td>${purchaseDate}</td>
-    <td>${currentValue}</td>
-    <td>${currentDate}</td>
-    <td>${description}</td>
-  `;
+    let table = document.getElementById(tableId).getElementsByTagName('tbody')[0];
 
-  // Clear Inputs
-  document.getElementById("assetName").value = "";
-  document.getElementById("assetType").value = "";
-  document.getElementById("purchaseValue").value = "";
-  document.getElementById("purchaseDate").value = "";
-  document.getElementById("currentValue").value = "";
-  document.getElementById("currentDate").value = "";
-  document.getElementById("description").value = "";
+    let rowCount = table.rows.length + 1;
+
+    let row = table.insertRow();
+
+    if(tableId === "fixedTable"){
+
+        row.innerHTML = `
+            <td>${rowCount}</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td><input type="date"></td>
+            <td contenteditable="true"></td>
+            <td><input type="date"></td>
+        `;
+    }
+
+    else if(tableId === "nonFixedTable"){
+
+        row.innerHTML = `
+            <td>${rowCount}</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td><input type="date"></td>
+        `;
+    }
+
+    else{
+
+        row.innerHTML = `
+            <td>${rowCount}</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td><input type="date"></td>
+        `;
+    }
 }
