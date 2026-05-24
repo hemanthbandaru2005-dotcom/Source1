@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Fixed Assets</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        FinancePro
+    </div>
+
+    <ul>
+
+        <li onclick="goToPage('index.html')">Dashboard</li>
+
+        <li onclick="goToPage('assets.html')">Assets</li>
+
+        <li onclick="goToPage('income.html')">Income</li>
+
+        <li onclick="goToPage('expenses.html')">Expenses</li>
+
+        <li onclick="goToPage('liabilities.html')">Liabilities</li>
+
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="table-container">
+
+        <div class="table-header">
+
+            <h2>Fixed Assets Table</h2>
+
+            <button onclick="addRow()">
+                + Add Row
+            </button>
+
+        </div>
+
+        <table id="assetTable">
+
+            <thead>
+
+            <tr>
+
+                <th>Sl No</th>
+
+                <th>Asset Name</th>
+
+                <th>Description</th>
+
+                <th>Purchase Value</th>
+
+                <th>Purchase Date</th>
+
+                <th>Current Value</th>
+
+                <th>Current Date</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+
+                <td>1</td>
+
+                <td contenteditable="true">Laptop</td>
+
+                <td contenteditable="true">Dell i5</td>
+
+                <td contenteditable="true">50000</td>
+
+                <td><input type="date"></td>
+
+                <td contenteditable="true">45000</td>
+
+                <td><input type="date"></td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
