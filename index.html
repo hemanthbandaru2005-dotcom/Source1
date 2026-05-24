@@ -1,265 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Finance Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FinancePro Dashboard</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="sidebar">
 
-        <!-- Sidebar -->
-        <div class="sidebar">
+    <div class="logo">
+        FinancePro
+    </div>
 
-            <h2 class="logo">FinancePro</h2>
+    <ul>
 
-            <ul>
-                <li onclick="showSection('dashboard')">Dashboard</li>
-                <li onclick="showSection('assets')">Assets</li>
-                <li onclick="showSection('income')">Income</li>
-                <li onclick="showSection('expenses')">Expenses</li>
-                <li onclick="showSection('liabilities')">Liabilities</li>
-            </ul>
+        <li onclick="goToPage('index.html')">
+            <i class="fas fa-home"></i> Dashboard
+        </li>
 
-        </div>
+        <li onclick="goToPage('assets.html')">
+            <i class="fas fa-box"></i> Assets
+        </li>
 
-        <!-- Main Content -->
-        <div class="main-content">
+        <li onclick="goToPage('income.html')">
+            <i class="fas fa-wallet"></i> Income
+        </li>
 
-            <!-- Dashboard -->
-            <section id="dashboard" class="section active">
+        <li onclick="goToPage('expenses.html')">
+            <i class="fas fa-money-bill"></i> Expenses
+        </li>
 
-                <h1>Dashboard</h1>
+        <li onclick="goToPage('liabilities.html')">
+            <i class="fas fa-file-invoice"></i> Liabilities
+        </li>
 
-                <div class="cards">
+    </ul>
 
-                    <div class="card">
-                        <h3>Total Assets</h3>
-                        <p>₹ 5,00,000</p>
-                    </div>
+</div>
 
-                    <div class="card">
-                        <h3>Total Income</h3>
-                        <p>₹ 1,20,000</p>
-                    </div>
+<div class="main">
 
-                    <div class="card">
-                        <h3>Total Expenses</h3>
-                        <p>₹ 70,000</p>
-                    </div>
+    <div class="topbar">
 
-                    <div class="card">
-                        <h3>Total Liabilities</h3>
-                        <p>₹ 30,000</p>
-                    </div>
+        <h1>Company Finance Dashboard</h1>
 
-                </div>
-
-            </section>
-
-            <!-- Assets -->
-            <section id="assets" class="section">
-
-                <div class="top-flex">
-                    <h1>Assets</h1>
-
-                    <div class="sub-buttons">
-                        <button onclick="showAssetTable('fixed')">Fixed Assets</button>
-                        <button onclick="showAssetTable('nonfixed')">Non-Fixed Assets</button>
-                    </div>
-                </div>
-
-                <!-- Fixed Assets -->
-                <div id="fixed" class="asset-table active-table">
-
-                    <button class="add-btn" onclick="addRow('fixedTable')">Add Row</button>
-
-                    <table id="fixedTable">
-
-                        <thead>
-                            <tr>
-                                <th>Sl No</th>
-                                <th>Asset Name</th>
-                                <th>Description</th>
-                                <th>Purchase Value</th>
-                                <th>Purchase Date</th>
-                                <th>Current Value</th>
-                                <th>Current Date</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>1</td>
-                                <td contenteditable="true">Laptop</td>
-                                <td contenteditable="true">Dell i5</td>
-                                <td contenteditable="true">50000</td>
-                                <td><input type="date"></td>
-                                <td contenteditable="true">45000</td>
-                                <td><input type="date"></td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <!-- Non Fixed -->
-                <div id="nonfixed" class="asset-table">
-
-                    <button class="add-btn" onclick="addRow('nonFixedTable')">Add Row</button>
-
-                    <table id="nonFixedTable">
-
-                        <thead>
-                            <tr>
-                                <th>Sl No</th>
-                                <th>Asset Name</th>
-                                <th>Description</th>
-                                <th>Value</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>1</td>
-                                <td contenteditable="true">Cash</td>
-                                <td contenteditable="true">Wallet Cash</td>
-                                <td contenteditable="true">10000</td>
-                                <td><input type="date"></td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </section>
-
-            <!-- Income -->
-            <section id="income" class="section">
-
-                <div class="table-header">
-                    <h1>Income</h1>
-                    <button class="add-btn" onclick="addRow('incomeTable')">Add Row</button>
-                </div>
-
-                <table id="incomeTable">
-
-                    <thead>
-                        <tr>
-                            <th>Sl No</th>
-                            <th>Income Name</th>
-                            <th>Description</th>
-                            <th>Amount</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td contenteditable="true">Salary</td>
-                            <td contenteditable="true">Monthly Salary</td>
-                            <td contenteditable="true">50000</td>
-                            <td><input type="date"></td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </section>
-
-            <!-- Expenses -->
-            <section id="expenses" class="section">
-
-                <div class="table-header">
-                    <h1>Expenses</h1>
-                    <button class="add-btn" onclick="addRow('expenseTable')">Add Row</button>
-                </div>
-
-                <table id="expenseTable">
-
-                    <thead>
-                        <tr>
-                            <th>Sl No</th>
-                            <th>Expense Name</th>
-                            <th>Description</th>
-                            <th>Amount</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td contenteditable="true">Rent</td>
-                            <td contenteditable="true">House Rent</td>
-                            <td contenteditable="true">15000</td>
-                            <td><input type="date"></td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </section>
-
-            <!-- Liabilities -->
-            <section id="liabilities" class="section">
-
-                <div class="table-header">
-                    <h1>Liabilities</h1>
-                    <button class="add-btn" onclick="addRow('liabilityTable')">Add Row</button>
-                </div>
-
-                <table id="liabilityTable">
-
-                    <thead>
-                        <tr>
-                            <th>Sl No</th>
-                            <th>Liability Name</th>
-                            <th>Description</th>
-                            <th>Amount</th>
-                            <th>Due Date</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td contenteditable="true">Loan</td>
-                            <td contenteditable="true">Education Loan</td>
-                            <td contenteditable="true">200000</td>
-                            <td><input type="date"></td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </section>
-
+        <div class="profile">
+            Admin
         </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <div class="cards">
+
+        <div class="card blue">
+            <h2>Total Assets</h2>
+            <p>₹ 5,20,000</p>
+        </div>
+
+        <div class="card green">
+            <h2>Total Income</h2>
+            <p>₹ 1,50,000</p>
+        </div>
+
+        <div class="card red">
+            <h2>Total Expenses</h2>
+            <p>₹ 80,000</p>
+        </div>
+
+        <div class="card purple">
+            <h2>Total Liabilities</h2>
+            <p>₹ 2,00,000</p>
+        </div>
+
+    </div>
+
+    <div class="welcome">
+
+        <h2>Welcome to FinancePro ERP</h2>
+
+        <p>
+            Manage Assets, Income, Expenses and Liabilities
+            in one professional dashboard.
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
