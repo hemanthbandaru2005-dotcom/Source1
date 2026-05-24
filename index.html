@@ -1,55 +1,265 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Finance Management</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Finance Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <h1>Finance Management System</h1>
+    <div class="container">
 
-  <div class="box">
+        <!-- Sidebar -->
+        <div class="sidebar">
 
-    <input type="text" id="assetName" placeholder="Asset Name">
+            <h2 class="logo">FinancePro</h2>
 
-    <input type="text" id="assetType" placeholder="Asset Type">
+            <ul>
+                <li onclick="showSection('dashboard')">Dashboard</li>
+                <li onclick="showSection('assets')">Assets</li>
+                <li onclick="showSection('income')">Income</li>
+                <li onclick="showSection('expenses')">Expenses</li>
+                <li onclick="showSection('liabilities')">Liabilities</li>
+            </ul>
 
-    <input type="number" id="purchaseValue" placeholder="Purchase Value">
+        </div>
 
-    <input type="date" id="purchaseDate">
+        <!-- Main Content -->
+        <div class="main-content">
 
-    <input type="number" id="currentValue" placeholder="Current Value">
+            <!-- Dashboard -->
+            <section id="dashboard" class="section active">
 
-    <input type="date" id="currentDate">
+                <h1>Dashboard</h1>
 
-    <input type="text" id="description" placeholder="Description">
+                <div class="cards">
 
-    <button id="addBtn">Add Asset</button>
+                    <div class="card">
+                        <h3>Total Assets</h3>
+                        <p>₹ 5,00,000</p>
+                    </div>
 
-  </div>
+                    <div class="card">
+                        <h3>Total Income</h3>
+                        <p>₹ 1,20,000</p>
+                    </div>
 
-  <table>
+                    <div class="card">
+                        <h3>Total Expenses</h3>
+                        <p>₹ 70,000</p>
+                    </div>
 
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Purchase Value</th>
-        <th>Purchase Date</th>
-        <th>Current Value</th>
-        <th>Current Date</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+                    <div class="card">
+                        <h3>Total Liabilities</h3>
+                        <p>₹ 30,000</p>
+                    </div>
 
-    <tbody id="assetTable">
+                </div>
 
-    </tbody>
+            </section>
 
-  </table>
+            <!-- Assets -->
+            <section id="assets" class="section">
 
-  <script src="script.js"></script>
+                <div class="top-flex">
+                    <h1>Assets</h1>
+
+                    <div class="sub-buttons">
+                        <button onclick="showAssetTable('fixed')">Fixed Assets</button>
+                        <button onclick="showAssetTable('nonfixed')">Non-Fixed Assets</button>
+                    </div>
+                </div>
+
+                <!-- Fixed Assets -->
+                <div id="fixed" class="asset-table active-table">
+
+                    <button class="add-btn" onclick="addRow('fixedTable')">Add Row</button>
+
+                    <table id="fixedTable">
+
+                        <thead>
+                            <tr>
+                                <th>Sl No</th>
+                                <th>Asset Name</th>
+                                <th>Description</th>
+                                <th>Purchase Value</th>
+                                <th>Purchase Date</th>
+                                <th>Current Value</th>
+                                <th>Current Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td contenteditable="true">Laptop</td>
+                                <td contenteditable="true">Dell i5</td>
+                                <td contenteditable="true">50000</td>
+                                <td><input type="date"></td>
+                                <td contenteditable="true">45000</td>
+                                <td><input type="date"></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <!-- Non Fixed -->
+                <div id="nonfixed" class="asset-table">
+
+                    <button class="add-btn" onclick="addRow('nonFixedTable')">Add Row</button>
+
+                    <table id="nonFixedTable">
+
+                        <thead>
+                            <tr>
+                                <th>Sl No</th>
+                                <th>Asset Name</th>
+                                <th>Description</th>
+                                <th>Value</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td contenteditable="true">Cash</td>
+                                <td contenteditable="true">Wallet Cash</td>
+                                <td contenteditable="true">10000</td>
+                                <td><input type="date"></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- Income -->
+            <section id="income" class="section">
+
+                <div class="table-header">
+                    <h1>Income</h1>
+                    <button class="add-btn" onclick="addRow('incomeTable')">Add Row</button>
+                </div>
+
+                <table id="incomeTable">
+
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Income Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+                            <td contenteditable="true">Salary</td>
+                            <td contenteditable="true">Monthly Salary</td>
+                            <td contenteditable="true">50000</td>
+                            <td><input type="date"></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+            <!-- Expenses -->
+            <section id="expenses" class="section">
+
+                <div class="table-header">
+                    <h1>Expenses</h1>
+                    <button class="add-btn" onclick="addRow('expenseTable')">Add Row</button>
+                </div>
+
+                <table id="expenseTable">
+
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Expense Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+                            <td contenteditable="true">Rent</td>
+                            <td contenteditable="true">House Rent</td>
+                            <td contenteditable="true">15000</td>
+                            <td><input type="date"></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+            <!-- Liabilities -->
+            <section id="liabilities" class="section">
+
+                <div class="table-header">
+                    <h1>Liabilities</h1>
+                    <button class="add-btn" onclick="addRow('liabilityTable')">Add Row</button>
+                </div>
+
+                <table id="liabilityTable">
+
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Liability Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+                            <td contenteditable="true">Loan</td>
+                            <td contenteditable="true">Education Loan</td>
+                            <td contenteditable="true">200000</td>
+                            <td><input type="date"></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
