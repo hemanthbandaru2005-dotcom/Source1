@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Assets</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        FinancePro
+    </div>
+
+    <ul>
+
+        <li onclick="goToPage('index.html')">Dashboard</li>
+
+        <li class="active">Assets</li>
+
+        <li onclick="goToPage('income.html')">Income</li>
+
+        <li onclick="goToPage('expenses.html')">Expenses</li>
+
+        <li onclick="goToPage('liabilities.html')">Liabilities</li>
+
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>Assets Management</h1>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card blue"
+             onclick="goToPage('fixed-assets.html')">
+
+            <h2>Fixed Assets</h2>
+
+            <p>Open</p>
+
+        </div>
+
+        <div class="card green"
+             onclick="goToPage('non-fixed-assets.html')">
+
+            <h2>Non Fixed Assets</h2>
+
+            <p>Open</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
